@@ -1,0 +1,217 @@
+<!--
+* INSPINIA - Responsive Admin Theme
+* Copyright 2015 Webapplayers.com
+* Version 1.9
+*
+-->
+
+<!DOCTYPE html>
+<html ng-app="inspinia">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+
+    <!-- build:css({.tmp,app}) styles/vendor.css -->
+
+    <!-- Font awesome -->
+    <link href="../bower_components/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- 图像裁剪插件 -->
+    <link href="../bower_components/ngImgCrop/compile/unminified/ng-img-crop.css" rel="stylesheet">
+    <!-- select2 -->
+    <link href="../bower_components/angular-ui-select/dist/select.css" rel="stylesheet">
+    <!-- angular toastr -->
+    <link href="../bower_components/angular-toastr/dist/angular-toastr.css" rel="stylesheet">
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/plugins/icheck/all.css -->
+    <!-- iCheck -->
+    <link href="../bower_components/iCheck/skins/all.css" rel="stylesheet">
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/style.css -->
+    <!-- animate -->
+    <link href="styles/animate.css" rel="stylesheet">
+    <!-- web portal -->
+    <link href="styles/style.css" rel="stylesheet">
+    <!-- endbuild -->
+
+    <script>
+        var signInUserName = "${userName}";
+    </script>
+</head>
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+<body ng-controller="MainController as main" ng-cloak  ng-class="userTheme.skin">
+
+<!-- Wrapper-->
+<div id="wrapper" class="whole-wrapper" ng-style="getBackgroundImage(userTheme.wallpaper);">
+    <!-- themeConfig-->
+    <div class="theme-seting-box" ng-include="'views/common/theme.html'"></div>
+    <!-- Navigation -->
+    <div ng-include="'views/common/sidebar.html'"></div>
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="page-wrapper">
+
+        <!-- Page wrapper -->
+        <div ng-include="'views/common/header.html'"></div>
+
+        <!-- Main view  -->
+        <div ui-view></div>
+
+        <!-- Footer -->
+        <!--<div ng-include="'views/common/footer.html'"></div>-->
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->
+
+<div wp-window-resize-recorder></div>
+
+<!-- easyXDM -->
+<script src="scripts/plugins/easyxdm/src/easyXDM.debug.js"></script>
+<script type="text/javascript">
+    easyXDM.DomHelper.requiresJSON("scripts/json2.js");
+</script>
+
+<!-- build:js({.tmp,app}) scripts/vendor.js -->
+
+<!-- jQuery and Bootstrap -->
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<!-- Underscore -->
+<script src="../bower_components/underscore/underscore.js"></script>
+
+<!-- SlimScroll -->
+<script src="../bower_components/slimScroll/jquery.slimscroll.js"></script>
+
+<!-- Peace JS -->
+<script src="../bower_components/pace/pace.js"></script>
+
+<!-- iCheck JS -->
+<script src="../bower_components/icheck/icheck.js"></script>
+
+<!-- Angular and Angular plugins JS-->
+<script src="../bower_components/angular/angular.js"></script>
+<script src="scripts/plugins/angular-resource.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../bower_components/angular-ui-sortable/sortable.js"></script>
+<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../bower_components/angular-file-reader/angular-file-reader.js"></script>
+<script src="../bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+<script src="../bower_components/socket.io-client/socket.io.js"></script>
+<script src="../bower_components/angular-socket-io/socket.js"></script>
+<script src="../bower_components/angular-packery/src/packery.js"></script>
+<script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+
+<!-- packery JS -->
+<script src="../bower_components/draggabilly/dist/draggabilly.pkgd.js"></script>
+<script src="../bower_components/packery/dist/packery.pkgd.js"></script>
+
+<!-- ocLazyLoad -->
+<script src="../bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+
+<!-- 上传头像 -->
+<script src="../bower_components/angular-base64-upload/dist/angular-base64-upload.js"></script>
+
+<!-- 裁剪头像 -->
+<script src="../bower_components/ngImgCrop/compile/unminified/ng-img-crop.js"></script>
+
+<!-- select2 -->
+<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="../bower_components/angular-ui-select/dist/select.js"></script>
+
+<!-- RequireJS JS, must be the last vendor script -->
+<script src="scripts/plugins/requirejs/require.js"></script>
+
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+<!-- Configuration for requirejs-->
+<script src="scripts/base.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="scripts/inspinia.js"></script>
+
+<!-- Angular App Script -->
+<script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
+
+<script src="scripts/services/menuService.js"></script>
+<script src="scripts/services/workspaceService.js"></script>
+<script src="scripts/services/systemService.js"></script>
+<script src="scripts/services/userService.js"></script>
+<script src="scripts/services/deskService.js"></script>
+<script src="scripts/services/msgNotifyService.js"></script>
+<script src="scripts/services/msgService.js"></script>
+<script src="scripts/services/deskService.js"></script>
+<script src="scripts/services/themeService.js"></script>
+<script src="scripts/services/modalService.js"></script>
+
+<script src="scripts/apis/Api.js"></script>
+<script src="scripts/apis/DeskApi.js"></script>
+<script src="scripts/apis/ShortcutApi.js"></script>
+<script src="scripts/apis/SystemApi.js"></script>
+<script src="scripts/apis/UserApi.js"></script>
+
+<script src="scripts/filters/userFilters.js"></script>
+<script src="scripts/filters/msgFilters.js"></script>
+<script src="scripts/filters/searchFilters.js"></script>
+
+<script src="scripts/controllers/MainController.js"></script>
+<script src="scripts/controllers/loginController.js"></script>
+<script src="scripts/controllers/SideBarController.js"></script>
+<script src="scripts/controllers/WorkspaceController.js"></script>
+<script src="scripts/controllers/WorkTabController.js"></script>
+<script src="scripts/controllers/IgniteAppController.js"></script>
+<script src="scripts/controllers/IgniteWidgetController.js"></script>
+<script src="scripts/controllers/headerController.js"></script>
+<script src="scripts/controllers/msgController.js"></script>
+<script src="scripts/controllers/actionModalController.js"></script>
+<script src="scripts/controllers/SearchController.js"></script>
+<script src="scripts/controllers/photoCrop.js"></script>
+<script src="scripts/controllers/themeController.js"></script>
+
+<script src="scripts/directives/icheck.js"></script>
+<script src="scripts/directives/minimalizaSidebar.js"></script>
+<script src="scripts/directives/wpAppFrame.js"></script>
+<script src="scripts/directives/wpAppsFrame.js"></script>
+<script src="scripts/directives/wpHomeFrame.js"></script>
+<script src="scripts/directives/wpWidgetsFrame.js"></script>
+<script src="scripts/directives/wpAppThumb.js"></script>
+<script src="scripts/directives/wpWidgetThumb.js"></script>
+<script src="scripts/directives/wpWidgetPin.js"></script>
+<script src="scripts/directives/wpDesk.js"></script>
+<script src="scripts/directives/wpSortableTab.js"></script>
+<script src="scripts/directives/wpNavBox.js"></script>
+<script src="scripts/directives/wpWindowResizeRecorder.js"></script>
+<script src="scripts/directives/wpProfileFrame.js"></script>
+<script src="scripts/directives/wpSlimScroll.js"></script>
+
+<!-- 编辑头像 -->
+<script src="scripts/controllers/photoCrop.js"></script>
+
+<!-- theme -->
+<script src="scripts/controllers/ThemeController.js"></script>
+<script src="scripts/services/themeService.js"></script>
+
+<!-- RequireJS JS -->
+<script src="scripts/plugins/requirejs/require.js"></script>
+<script src="scripts/base.js"></script>
+<!-- endbuild -->
+</body>
+</html>
